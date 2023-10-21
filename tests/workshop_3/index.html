@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Element Interactions</title>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      /* Button Section */
+      .button-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .button-section button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 16px;
+        transition: background-color 0.2s;
+      }
+
+      .button-section button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Drag and Drop Section */
+      .drag-and-drop-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .drag-source {
+        width: 100px;
+        height: 50px;
+        background-color: #ff5722;
+        color: #fff;
+        text-align: center;
+        padding-top: 15px;
+        margin-top: 20px;
+        cursor: grab;
+      }
+
+      .drop-target {
+        width: 200px;
+        height: 100px;
+        background-color: #4caf50;
+        color: #fff;
+        text-align: center;
+        padding-top: 35px;
+        margin-top: 20px;
+        border: 2px dashed #333;
+      }
+
+      /* Iframe Section */
+      .iframe-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+      }
+
+      /* Cat Gif Container */
+      .cat-container {
+        position: relative;
+      }
+
+      .cat-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Advanced Element Interactions</h1>
+      <p>This is a stylish and functional website for testing Playwright automation.</p>
+
+      <!-- Button Section -->
+      <div class="button-section">
+        <!-- JavaScript code for hover effect -->
+        <button id="hover-me" onmouseover="changeButtonText(this)" onmouseout="resetButtonText(this)">
+          Hover Over Me
+        </button>
+
+        <button id="context-menu" oncontextmenu="showContextMenu(event)">Right-Click Me</button>
+        <button id="double-click" ondblclick="showCatGif()">Double-Click Me</button>
+      </div>
+
+      <!-- Drag and Drop Section -->
+      <div class="drag-and-drop-section">
+        <div class="drag-source" draggable="true" ondragstart="drag(event)">Drag Me</div>
+        <div class="drop-target" ondragover="allowDrop(event)" ondrop="drop(event)">
+          <p>Drop Here</p>
+        </div>
+      </div>
+
+      <!-- Iframe Section -->
+      <div class="iframe-section">
+        <iframe src="iframe.html" name="iframeName"></iframe>
+      </div>
+      <!-- Cat Gif Container -->
+      <div class="cat-container"></div>
+    </div>
+
+    <script>
+      function changeButtonText(button) {
+        button.textContent = 'Text Changed!';
+      }
+
+      function resetButtonText(button) {
+        button.textContent = 'Hover Over Me';
+      }
+
+      function showContextMenu(event) {
+        event.preventDefault();
+        const contextMenu = document.createElement('div');
+        contextMenu.textContent = 'Context Menu Appears!';
+        contextMenu.style.position = 'absolute';
+        contextMenu.style.left = event.clientX + 'px';
+        contextMenu.style.top = event.clientY + 'px';
+        document.body.appendChild(contextMenu);
+      }
+
+      function showCatGif() {
+        const catContainer = document.querySelector('.cat-container');
+        const catGif = document.createElement('img');
+        catGif.src = 'https://placekitten.com/300/200';
+        catGif.alt = 'Cute Cat';
+        catGif.className = 'cat-image';
+        catContainer.appendChild(catGif);
+      }
+
+      function drag(event) {
+        event.dataTransfer.setData('text', event.target.id);
+      }
+
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function drop(event) {
+        event.preventDefault();
+        const data = event.dataTransfer.getData('text');
+        const draggedElement = document.getElementById(data);
+        const dropTarget = event.currentTarget;
+
+        // Create a new div element to replace the dropped element
+        const newElement = document.createElement('div');
+        newElement.className = 'drag-source';
+        newElement.draggable = true;
+        newElement.textContent = 'Drag Me';
+
+        // Replace the drop target's inner HTML with the new element
+        dropTarget.innerHTML = '';
+        dropTarget.appendChild(newElement);
+        dropTarget.innerHTML = 'Success';
+      }
+    </script>
+  </body>
+</html>
