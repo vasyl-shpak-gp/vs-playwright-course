@@ -1,0 +1,13 @@
+{
+  "name": "vs-playwright-course",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vasyl-shpak-gp/vs-playwright-course.git",
+  "author": "Vasyl Shpak <vasyl.shpak@grandparade.co.uk>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.8.7"
+  },
+  "scripts": {}
+}
