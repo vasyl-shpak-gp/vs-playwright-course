@@ -6,7 +6,7 @@ import {test, expect } from "@playwright/test";
         student: '#isStudent'
     }
 test.describe('Variable Declarations and Types', ()=>{
-    test.only('Decalations and Types', async({page})=>{
+    test.skip('Decalations and Types', async({page})=>{
         let firstname: string = 'John';
         let age: number = 30;
         let isStudent: boolean = false;
@@ -35,7 +35,7 @@ test.describe('Type Definitions and Interfaces', ()=>{
         age: 25,
         isStudent: true,
     }
-    test.only('Type Def and Interfaces', async ({page})=>{
+    test.skip('Type Def and Interfaces', async ({page})=>{
         await page.goto('file:///Users/vshpak/Desktop/vs-playwright-course/tests/workshop_7/index.html');
         await page.fill(selectors.firstName, user.firstName);
         await page.fill(selectors.age, user.age.toString());
