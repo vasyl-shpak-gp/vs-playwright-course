@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playwright Test Suites</title>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      /* Button Section */
+      .button-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .button-section button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 16px;
+        transition: background-color 0.2s;
+      }
+
+      .button-section button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Form Section */
+      .form-section {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .form-section label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .form-section input[type='text'] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .form-section button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 16px;
+        transition: background-color 0.2s;
+      }
+
+      /* Data Section */
+      .data-section {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .error-section {
+        padding: 20px;
+        background-color: #ff8080;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+        text-align: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Playwright Test Suites</h1>
+      <p>Practicing Playwright automation tests.</p>
+      <div class="form-section">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="Enter your first name" />
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" placeholder="Enter your last name" />
+        <label for="address">Address:</label>
+        <input type="text" id="address" placeholder="Enter your address" />
+        <label for="number">Number:</label>
+        <input type="text" id="number" placeholder="Enter your number" />
+        <button id="register">Register</button>
+      </div>
+      <div class="data-section" id="userData" style="display: none">
+        <h2>Registered Data</h2>
+        <p><strong>First Name:</strong> <span id="displayFirstName"></span></p>
+        <p><strong>Last Name:</strong> <span id="displayLastName"></span></p>
+        <p><strong>Address:</strong> <span id="displayAddress"></span></p>
+        <p><strong>Number:</strong> <span id="displayNumber"></span></p>
+      </div>
+      <div class="error-section" id="error" style="display: none">
+        <p>Please fill in all fields.</p>
+      </div>
+    </div>
+    <script>
+      document.getElementById('register').addEventListener('click', () => {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const address = document.getElementById('address').value;
+        const number = document.getElementById('number').value;
+        const userData = document.getElementById('userData');
+        const error = document.getElementById('error');
+
+        if (firstName && lastName && address && number) {
+          document.getElementById('displayFirstName').textContent = firstName;
+          document.getElementById('displayLastName').textContent = lastName;
+          document.getElementById('displayAddress').textContent = address;
+          document.getElementById('displayNumber').textContent = number;
+
+          // Show the registered data
+          userData.style.display = 'block';
+
+          // Hide the error if displayed
+          error.style.display = 'none';
+        } else {
+          // Show the error message
+          error.style.display = 'block';
+
+          // Hide the registered data if displayed
+          userData.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>
