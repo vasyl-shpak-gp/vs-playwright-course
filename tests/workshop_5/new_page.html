@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Page</title>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      /* Cat Gif Container */
+      .cat-container {
+        position: relative;
+      }
+
+      .cat-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .button-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .button-section button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 16px;
+        transition: background-color 0.2s;
+      }
+
+      .button-section button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the New Page</h1>
+      <div class="cat-container">
+        <img src="https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif" alt="cat" class="cat-image" />
+      </div>
+      <div class="button-section">
+        <button id="backToMain">Back to Main Page</button>
+      </div>
+    </div>
+    <script>
+      document.getElementById('backToMain').addEventListener('click', () => {
+        window.location.href = 'index.html';
+      });
+    </script>
+  </body>
+</html>
