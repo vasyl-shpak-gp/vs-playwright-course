@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeScript Test Page</title>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      /* Button Section */
+      .button-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .button-section button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 16px;
+        transition: background-color 0.2s;
+      }
+
+      .button-section button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Form Section */
+      .form-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .form-section input[type='text'],
+      .form-section input[type='number'],
+      .form-section input[type='checkbox'] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+      }
+
+      /* Display Section */
+      .display-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .display-section p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>TypeScript Concepts Test Page</h1>
+      <div class="button-section">
+        <button id="applyData">Apply</button>
+      </div>
+      <div class="form-section">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" />
+        <label for="age">Age:</label>
+        <input type="number" id="age" />
+        <label for="isStudent">Student:</label>
+        <input type="checkbox" id="isStudent" />
+      </div>
+      <div class="display-section">
+        <p id="displayFirstName"></p>
+        <p id="displayAge"></p>
+        <p id="displayIsStudent"></p>
+        <p id="loadedData"></p>
+      </div>
+    </div>
+    <script>
+      // Apply button click event handler
+      document.getElementById('applyData').addEventListener('click', () => {
+        // Read input values
+        const firstName = document.getElementById('firstName').value;
+        const age = document.getElementById('age').value;
+        const isStudent = document.getElementById('isStudent').checked;
+
+        // Update display elements
+        document.getElementById('displayFirstName').textContent = firstName;
+        document.getElementById('displayAge').textContent = age;
+        document.getElementById('displayIsStudent').textContent = isStudent ? 'Yes' : 'No';
+      });
+    </script>
+  </body>
+</html>
