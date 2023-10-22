@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handling Pop-ups and Alerts</title>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      /* Alert Section */
+      .alert-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .alert-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 16px;
+        transition: background-color 0.2s;
+      }
+
+      /* Pop-up Section */
+      .popup-section {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .popup-button {
+        padding: 10px 20px;
+        background-color: #ff5722;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 16px;
+        transition: background-color 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Handling Pop-ups and Alerts</h1>
+      <p>This is a stylish and functional website for testing handling pop-ups and alerts in Playwright.</p>
+
+      <!-- Alert Section -->
+      <div class="alert-section">
+        <!-- JavaScript code for handling alerts -->
+        <button id="show-alert" class="alert-button">Show Alert</button>
+        <button id="show-confirm" class="alert-button">Show Confirm-Alert</button>
+      </div>
+
+      <!-- Pop-up Section -->
+      <div class="popup-section">
+        <!-- JavaScript code for handling pop-up windows -->
+        <button id="open-popup" class="popup-button">Open Pop-up</button>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript functions for handling alerts
+      document.getElementById('show-alert').addEventListener('click', () => {
+        alert('This is a simple alert.');
+      });
+
+      document.getElementById('show-confirm').addEventListener('click', () => {
+        const result = confirm('Are you sure you want to proceed?');
+        if (result) {
+          alert('You clicked OK.');
+        } else {
+          alert('You clicked Cancel.');
+        }
+      });
+
+      // JavaScript functions for handling pop-up windows
+      document.getElementById('open-popup').addEventListener('click', () => {
+        window.open('https://example.com', 'popup', 'width=600,height=400');
+      });
+    </script>
+  </body>
+</html>
